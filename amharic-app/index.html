@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1, user-scalable=no">
+<meta name="color-scheme" content="light only">
+<title>አማርኛ · Learn Amharic</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Amharic">
+<meta name="theme-color" content="#FBF5E9">
+<link rel="apple-touch-icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'><rect width='180' height='180' rx='40' fill='%231B2E1F'/><text x='90' y='118' font-family='Georgia,serif' font-size='90' font-style='italic' text-anchor='middle' fill='%23C9A227'>ሰ</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;1,400;1,500&family=Manrope:wght@400;500;600&family=Noto+Sans+Ethiopic:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  color-scheme: light only;
+  --cream: #F4EDD8;
+  --paper: #FBF5E9;
+  --green: #1B2E1F;
+  --greenL: #2D4A2F;
+  --red: #BC4B23;
+  --gold: #C9A227;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html, body {
+  margin: 0; padding: 0;
+  background: var(--cream) !important;
+  color: var(--green) !important;
+  min-height: 100vh; min-height: 100dvh;
+  font-family: Manrope, -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  font-size: 15px; line-height: 1.5;
+}
+@media (prefers-color-scheme: dark) {
+  html, body { background: var(--cream) !important; color: var(--green) !important; }
+}
+button { font: inherit; cursor: pointer; -webkit-appearance: none; appearance: none; background: none; border: none; padding: 0; color: inherit; }
+.fe { font-family: "Noto Sans Ethiopic", "Abyssinica SIL", "Nyala", serif; }
+.ff { font-family: Fraunces, "Cormorant Garamond", Georgia, serif; font-style: italic; }
+.icon { display: inline-block; vertical-align: middle; flex-shrink: 0; }
+
+/* Header */
+.hdr { background: var(--paper); border-bottom: 1px solid rgba(45,74,47,.15); padding: 1.5rem 1rem; }
+.hdr-inner { max-width: 56rem; margin: 0 auto; display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: .5rem; }
+.hdr-pre { font-size: 10px; letter-spacing: .3em; text-transform: uppercase; color: var(--red); margin-bottom: .25rem; display: flex; align-items: center; gap: .5rem; }
+.hdr-title { font-family: Fraunces, serif; font-style: italic; font-weight: 400; font-size: 2.5rem; line-height: 1; margin: 0; color: var(--green); }
+.hdr-title .name { font-style: normal; }
+.hdr-sub { font-family: Fraunces, serif; font-style: italic; font-size: 12px; color: rgba(45,74,47,.6); max-width: 14rem; }
+
+/* Nav */
+.nav { position: sticky; top: 0; z-index: 10; background: rgba(251,245,233,.95); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-bottom: 1px solid rgba(45,74,47,.15); }
+.nav-inner { max-width: 56rem; margin: 0 auto; display: flex; overflow-x: auto; padding: 0 1rem; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+.nav-inner::-webkit-scrollbar { display: none; }
+.tab { display: flex; align-items: center; gap: .5rem; padding: .75rem 1rem; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; white-space: nowrap; color: rgba(45,74,47,.5); border-bottom: 2px solid transparent; }
+.tab.active { color: var(--green); border-bottom-color: var(--red); }
+
+/* Main */
+.main { max-width: 56rem; margin: 0 auto; padding: 2rem 1rem; }
+
+/* Audio banner */
+.audio-banner { margin-bottom: 1rem; padding: .75rem; background: rgba(201,162,39,.15); border-left: 2px solid var(--gold); font-size: 12px; line-height: 1.5; color: var(--greenL); }
+.audio-banner strong { font-weight: 600; }
+
+/* Filter pills */
+.pills { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1.5rem; }
+.pill { padding: .375rem .75rem; font-size: 11px; letter-spacing: .15em; text-transform: uppercase; border: 1px solid rgba(45,74,47,.25); color: var(--greenL); background: transparent; }
+.pill.active { background: var(--green); color: var(--paper); border-color: var(--green); }
+
+/* Grids */
+.grid-2 { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+@media (min-width: 640px) { .grid-2 { grid-template-columns: 1fr 1fr; } }
+.grid-3 { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; }
+@media (min-width: 640px) { .grid-3 { grid-template-columns: 1fr 1fr 1fr; } }
+
+/* Phrase card */
+.card { background: var(--paper); border: 1px solid rgba(45,74,47,.15); padding: 1.25rem; position: relative; }
+.card-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: .75rem; }
+.cat { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--red); font-weight: 500; }
+.speak { color: rgba(45,74,47,.5); padding: .25rem; }
+.speak:active { color: var(--red); }
+.big-am { font-size: 1.875rem; color: var(--green); margin-bottom: .5rem; line-height: 1.2; }
+.tr { font-size: 13px; color: rgba(45,74,47,.7); margin-bottom: .75rem; }
+.en { font-size: 15px; color: var(--greenL); }
+.en.dim { color: rgba(45,74,47,.4); }
+
+/* Number card */
+.num-card { background: var(--paper); border: 1px solid rgba(45,74,47,.15); padding: 1.25rem; position: relative; overflow: hidden; }
+.num-bg { position: absolute; top: -.5rem; right: -.25rem; font-size: 4.5rem; font-family: Fraunces, serif; font-style: italic; font-weight: 300; color: rgba(201,162,39,.18); user-select: none; pointer-events: none; line-height: 1; }
+.num-content { position: relative; }
+.num-am { font-size: 1.875rem; color: var(--green); margin-bottom: .25rem; }
+.num-tr { font-size: 12px; color: rgba(45,74,47,.7); }
+.num-n { font-size: 11px; letter-spacing: .15em; text-transform: uppercase; color: var(--red); font-weight: 500; margin-top: .5rem; }
+
+/* Fidel */
+.fidel-intro { margin-bottom: 1.5rem; padding: 1rem; background: var(--green); color: var(--paper); }
+.fidel-intro-pre { font-size: 10px; letter-spacing: .25em; text-transform: uppercase; color: var(--gold); margin-bottom: .5rem; }
+.fidel-intro-body { font-size: 13px; line-height: 1.5; }
+.fidel-intro-body em { color: var(--gold); font-style: normal; }
+.fidel-orders { display: flex; gap: .75rem; margin-top: .75rem; font-size: 12px; }
+.fidel-order { text-align: center; }
+.fidel-order-num { color: var(--gold); font-weight: 500; }
+.fidel-order-vowel { font-family: Fraunces, serif; font-style: italic; }
+.fidel-scroll { overflow-x: auto; margin: 0 -1rem; padding: 0 1rem; -webkit-overflow-scrolling: touch; }
+.fidel-table { display: grid; grid-template-columns: auto repeat(7, minmax(2.5rem, 1fr)); gap: 1px; background: rgba(45,74,47,.15); min-width: 100%; width: max-content; }
+.fidel-h { background: var(--paper); padding: .5rem; text-align: center; font-size: 10px; text-transform: uppercase; letter-spacing: .05em; color: var(--red); font-family: Fraunces, serif; font-style: italic; }
+.fidel-rname { background: var(--paper); padding: .5rem; display: flex; align-items: center; justify-content: center; font-size: 12px; color: rgba(45,74,47,.7); font-family: Fraunces, serif; font-style: italic; min-width: 2.5rem; }
+.fidel-char { background: var(--paper); padding: .75rem; text-align: center; font-size: 1.25rem; color: var(--green); font-family: "Noto Sans Ethiopic", "Abyssinica SIL", serif; min-width: 2.5rem; }
+.fidel-char.sel { background: var(--red); color: var(--paper); }
+
+/* Verbs */
+.note-box { margin-bottom: 1.25rem; padding: 1rem; background: rgba(27,46,31,.05); border-left: 2px solid var(--red); }
+.note-box .h { font-size: 10px; letter-spacing: .25em; text-transform: uppercase; color: var(--red); font-weight: 500; margin-bottom: .25rem; }
+.note-box p { margin: 0; font-size: 13px; line-height: 1.5; color: var(--greenL); }
+.note-box em { font-family: Fraunces, serif; font-style: italic; }
+.note-box .fe { font-family: "Noto Sans Ethiopic", serif; font-style: normal; }
+.verb { background: var(--paper); border: 1px solid rgba(45,74,47,.15); margin-bottom: .75rem; }
+.verb-head { padding: 1rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; cursor: pointer; }
+.verb-head-left { display: flex; align-items: baseline; gap: .75rem; flex-wrap: wrap; }
+.verb-am { font-family: "Noto Sans Ethiopic", serif; font-size: 1.5rem; color: var(--green); }
+.verb-tr { font-family: Fraunces, serif; font-style: italic; font-size: 13px; color: rgba(45,74,47,.7); }
+.verb-en { font-size: 13px; color: var(--greenL); }
+.verb-body { border-top: 1px solid rgba(45,74,47,.1); background: rgba(244,237,216,.4); padding: 1rem; }
+.verb-note { font-family: Fraunces, serif; font-style: italic; font-size: 12px; color: rgba(45,74,47,.7); margin-bottom: 1rem; }
+.tense-head { font-size: 10px; letter-spacing: .25em; text-transform: uppercase; color: var(--red); font-weight: 500; margin-bottom: .5rem; }
+.conj-grid { display: grid; grid-template-columns: 1fr; gap: .5rem; margin-bottom: 1rem; }
+@media (min-width: 640px) { .conj-grid { grid-template-columns: 1fr 1fr; } }
+.conj-row { display: flex; align-items: baseline; justify-content: space-between; padding: .5rem; border-bottom: 1px solid rgba(45,74,47,.1); }
+.conj-person { font-size: 12px; color: rgba(45,74,47,.6); flex-shrink: 0; width: 6rem; }
+.conj-am { font-family: "Noto Sans Ethiopic", serif; font-size: 1.125rem; color: var(--green); flex: 1; margin: 0 .5rem; }
+.conj-tr { font-family: Fraunces, serif; font-style: italic; font-size: 11px; color: rgba(45,74,47,.5); }
+
+/* Dialogue */
+.dlg-tabs { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1.25rem; }
+.dlg { background: var(--paper); border: 1px solid rgba(45,74,47,.15); }
+.dlg-head { padding: 1.25rem; border-bottom: 1px solid rgba(45,74,47,.1); display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; }
+.dlg-title { font-family: Fraunces, serif; font-style: italic; font-size: 1.5rem; color: var(--green); margin: 0 0 .25rem 0; }
+.dlg-scene { font-size: 13px; color: rgba(45,74,47,.7); margin: 0; }
+.dlg-toggle { flex-shrink: 0; font-size: 10px; letter-spacing: .15em; text-transform: uppercase; padding: .375rem .75rem; border: 1px solid rgba(45,74,47,.25); color: var(--greenL); }
+.dlg-body { padding: 1.25rem; display: flex; flex-direction: column; gap: 1rem; }
+.dlg-row { display: flex; gap: .75rem; }
+.dlg-row.r { flex-direction: row-reverse; }
+.dlg-avatar { flex-shrink: 0; width: 2.25rem; height: 2.25rem; border-radius: 50%; background: var(--green); color: var(--paper); display: flex; align-items: center; justify-content: center; font-size: 10px; text-transform: uppercase; letter-spacing: .1em; font-weight: 500; }
+.dlg-row.r .dlg-avatar { background: var(--red); }
+.dlg-bubble { flex: 1; max-width: 85%; }
+.dlg-row.r .dlg-bubble { text-align: right; }
+.dlg-msg { display: inline-block; padding: .75rem; background: rgba(244,237,216,.6); text-align: left; }
+.dlg-row.r .dlg-msg { background: rgba(188,75,35,.08); }
+.dlg-am-line { display: flex; align-items: baseline; gap: .5rem; }
+.dlg-am-text { font-family: "Noto Sans Ethiopic", serif; font-size: 1.25rem; color: var(--green); }
+.dlg-tr { font-family: Fraunces, serif; font-style: italic; font-size: 12px; color: rgba(45,74,47,.65); margin-top: .25rem; }
+.dlg-en { font-size: 13px; color: var(--greenL); margin-top: .25rem; }
+
+/* Calendar */
+.cal-hero { background: var(--green); color: var(--paper); padding: 1.5rem; margin-bottom: 1.5rem; position: relative; overflow: hidden; }
+.cal-hero::before, .cal-hero::after { content: ''; position: absolute; border-radius: 50%; }
+.cal-hero::before { top: -3rem; right: -3rem; width: 8rem; height: 8rem; background: rgba(201,162,39,.1); }
+.cal-hero::after { bottom: -2rem; left: -2rem; width: 6rem; height: 6rem; background: rgba(188,75,35,.15); }
+.cal-hero-content { position: relative; z-index: 1; }
+.cal-pre { font-size: 10px; letter-spacing: .3em; text-transform: uppercase; color: var(--gold); margin-bottom: .5rem; }
+.cal-date { font-family: "Noto Sans Ethiopic", serif; font-size: 3rem; margin: .25rem 0; line-height: 1.1; }
+.cal-date-tr { font-family: Fraunces, serif; font-style: italic; font-size: 1.125rem; color: rgba(201,162,39,.9); margin-bottom: 1rem; }
+.cal-grid { display: flex; flex-wrap: wrap; gap: 1rem; font-size: 13px; }
+.cal-label { font-size: 10px; letter-spacing: .05em; text-transform: uppercase; color: rgba(201,162,39,.7); margin-bottom: .25rem; }
+.cal-val { font-family: "Noto Sans Ethiopic", serif; font-size: 15px; }
+.cal-val-en { font-size: 15px; }
+.cal-val-sub { font-family: Fraunces, serif; font-style: italic; font-size: 11px; color: rgba(251,245,233,.7); }
+.cal-note { background: var(--paper); border: 1px solid rgba(45,74,47,.15); padding: 1rem; margin-bottom: 1.5rem; }
+.cal-note-head { font-size: 10px; letter-spacing: .25em; text-transform: uppercase; color: var(--red); font-weight: 500; margin-bottom: .5rem; }
+.cal-note p { margin: 0; font-size: 13px; line-height: 1.5; }
+.cal-note em { font-family: Fraunces, serif; }
+.cal-note .fe { font-family: "Noto Sans Ethiopic", serif; }
+.section-head { font-size: 10px; letter-spacing: .25em; text-transform: uppercase; color: var(--red); font-weight: 500; margin: 1.5rem 0 .75rem 0; }
+.month-grid { display: grid; grid-template-columns: 1fr; gap: .5rem; }
+@media (min-width: 640px) { .month-grid { grid-template-columns: 1fr 1fr; } }
+.month-row { padding: .75rem; display: flex; justify-content: space-between; align-items: center; background: var(--paper); border: 1px solid rgba(45,74,47,.15); }
+.month-row.current { background: rgba(188,75,35,.1); border-color: var(--red); }
+.month-row-inner { display: flex; align-items: baseline; gap: .5rem; }
+.month-row-num { font-size: 12px; color: rgba(45,74,47,.5); width: 1rem; }
+.month-row-am { font-family: "Noto Sans Ethiopic", serif; font-size: 1.25rem; color: var(--green); }
+.month-row-tr { font-family: Fraunces, serif; font-style: italic; font-size: 13px; color: rgba(45,74,47,.7); }
+.month-row-greg { font-size: 11px; color: rgba(45,74,47,.6); margin-left: 1.5rem; margin-top: .125rem; }
+.month-row-now { font-size: 9px; letter-spacing: .2em; text-transform: uppercase; color: var(--red); font-weight: 700; }
+.day-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .5rem; }
+@media (min-width: 640px) { .day-grid { grid-template-columns: 1fr 1fr 1fr 1fr; } }
+.day-card { padding: .75rem; text-align: center; background: var(--paper); border: 1px solid rgba(45,74,47,.15); color: var(--green); }
+.day-card.current { background: var(--green); color: var(--paper); border-color: var(--green); }
+.day-am { font-family: "Noto Sans Ethiopic", serif; font-size: 1.125rem; }
+.day-tr { font-family: Fraunces, serif; font-style: italic; font-size: 12px; color: rgba(45,74,47,.6); }
+.day-card.current .day-tr { color: var(--gold); }
+.day-en { font-size: 10px; text-transform: uppercase; letter-spacing: .05em; color: rgba(45,74,47,.5); }
+.day-card.current .day-en { color: rgba(251,245,233,.6); }
+
+/* Quiz */
+.quiz-top { display: flex; justify-content: space-between; align-items: center; padding-bottom: 1rem; margin-bottom: 1.5rem; border-bottom: 1px solid rgba(45,74,47,.15); }
+.quiz-score-pre { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--red); margin-bottom: .25rem; }
+.quiz-score { display: flex; align-items: baseline; gap: .75rem; }
+.quiz-score-num { font-family: Fraunces, serif; font-style: italic; font-size: 1.5rem; color: var(--green); }
+.quiz-score-frac { color: rgba(45,74,47,.4); }
+.quiz-acc { font-size: 12px; color: rgba(45,74,47,.6); }
+.quiz-toggle { padding: .5rem .75rem; font-size: 11px; letter-spacing: .15em; text-transform: uppercase; border: 1px solid rgba(45,74,47,.25); display: flex; align-items: center; gap: .5rem; color: var(--greenL); }
+.quiz-prompt { background: var(--green); padding: 2rem; text-align: center; margin-bottom: 1rem; }
+.quiz-prompt-pre { font-size: 10px; letter-spacing: .25em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+.quiz-prompt-text { color: var(--paper); margin-bottom: .5rem; line-height: 1.2; }
+.quiz-prompt-text.am-mode { font-family: "Noto Sans Ethiopic", serif; font-size: 2.25rem; }
+.quiz-prompt-text.en-mode { font-family: Fraunces, serif; font-style: italic; font-size: 1.5rem; }
+.quiz-speak { color: rgba(201,162,39,.8); margin-top: .25rem; }
+.quiz-opts { display: flex; flex-direction: column; gap: .5rem; margin-bottom: 1rem; }
+.quiz-opt { text-align: left; padding: 1rem; border: 1px solid rgba(45,74,47,.2); background: var(--paper); color: var(--green); display: flex; justify-content: space-between; align-items: center; width: 100%; }
+.quiz-opt.am-mode .quiz-opt-txt { font-family: "Noto Sans Ethiopic", serif; font-size: 1.5rem; }
+.quiz-opt.en-mode .quiz-opt-txt { font-family: Fraunces, serif; font-style: italic; font-size: 15px; }
+.quiz-opt.correct { background: var(--green); border-color: var(--green); color: var(--paper); }
+.quiz-opt.wrong { background: rgba(188,75,35,.1); border-color: var(--red); color: var(--red); }
+.quiz-opt.dim { color: rgba(45,74,47,.4); border-color: rgba(45,74,47,.1); }
+.quiz-opt[disabled] { cursor: default; }
+.quiz-next { width: 100%; padding: 1rem; background: var(--red); color: var(--paper); text-transform: uppercase; letter-spacing: .2em; font-size: 11px; font-weight: 500; display: flex; align-items: center; justify-content: center; gap: .5rem; }
+
+/* Flashcards */
+.flash-top { display: flex; justify-content: space-between; align-items: center; padding-bottom: .75rem; margin-bottom: 1.25rem; border-bottom: 1px solid rgba(45,74,47,.15); }
+.flash-stats { display: flex; gap: 1.25rem; }
+.flash-stat-label { font-size: 9px; letter-spacing: .2em; text-transform: uppercase; color: var(--red); margin-bottom: .125rem; }
+.flash-stat-val { font-weight: 500; color: var(--green); font-size: 13px; }
+.flash-reset { font-size: 10px; letter-spacing: .15em; text-transform: uppercase; color: rgba(45,74,47,.5); display: flex; align-items: center; gap: .25rem; }
+.flash-card { background: var(--paper); border: 1px solid rgba(45,74,47,.15); padding: 2.5rem; margin-bottom: 1rem; text-align: center; min-height: 14rem; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; cursor: pointer; }
+.flash-card-new { position: absolute; top: .75rem; left: .75rem; font-size: 9px; letter-spacing: .25em; text-transform: uppercase; color: var(--gold); font-weight: 500; }
+.flash-card-kind { position: absolute; top: .75rem; right: .75rem; font-size: 9px; letter-spacing: .25em; text-transform: uppercase; color: rgba(45,74,47,.4); }
+.flash-card-am { font-family: "Noto Sans Ethiopic", serif; font-size: 3rem; color: var(--green); margin-bottom: .75rem; line-height: 1.1; }
+.flash-card-tr { font-family: Fraunces, serif; font-style: italic; font-size: 14px; color: rgba(45,74,47,.7); margin-bottom: .5rem; }
+.flash-card-en { font-size: 1.125rem; color: var(--greenL); }
+.flash-card-hint { font-size: 11px; letter-spacing: .25em; text-transform: uppercase; color: rgba(45,74,47,.4); margin-top: .75rem; }
+.flash-card-speak { position: absolute; bottom: .75rem; right: .75rem; color: rgba(45,74,47,.5); padding: .25rem; }
+.flash-rate-grid { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: .5rem; }
+.flash-rate { padding: .75rem; display: flex; flex-direction: column; align-items: center; border: 1px solid transparent; }
+.flash-rate-label { font-size: 11px; letter-spacing: .15em; font-weight: 500; text-transform: uppercase; }
+.flash-rate-sub { font-size: 9px; opacity: .7; margin-top: .125rem; }
+.flash-rate.again { background: var(--red); color: var(--paper); border-color: var(--red); }
+.flash-rate.hard { background: var(--paper); color: var(--red); border-color: rgba(188,75,35,.5); }
+.flash-rate.good { background: var(--paper); color: var(--green); border-color: rgba(45,74,47,.4); }
+.flash-rate.easy { background: var(--green); color: var(--paper); border-color: var(--green); }
+.flash-show { width: 100%; padding: 1rem; background: var(--green); color: var(--paper); text-transform: uppercase; letter-spacing: .2em; font-size: 11px; font-weight: 500; }
+.flash-done { text-align: center; padding: 3rem 1rem; background: var(--paper); border: 1px solid rgba(45,74,47,.15); }
+.flash-done-icon { color: var(--gold); margin-bottom: 1rem; display: flex; justify-content: center; }
+.flash-done-title { font-family: Fraunces, serif; font-style: italic; font-size: 1.875rem; color: var(--green); margin: 0 0 .5rem 0; }
+.flash-done-msg { font-size: 13px; color: rgba(45,74,47,.7); margin-bottom: .25rem; }
+.flash-done-stats { font-size: 12px; color: rgba(45,74,47,.5); margin-bottom: 1.5rem; }
+
+/* Footer */
+.ftr { border-top: 1px solid rgba(45,74,47,.15); padding: 1.5rem; text-align: center; margin-top: 3rem; }
+.ftr-text { font-size: 10px; letter-spacing: .3em; text-transform: uppercase; color: rgba(45,74,47,.5); }
+
+/* Home splash */
+.home { min-height: 100vh; min-height: 100dvh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2rem; text-align: center; cursor: pointer; background: var(--cream); position: relative; }
+.home-pre { font-size: 10px; letter-spacing: .3em; text-transform: uppercase; color: var(--red); margin-bottom: 3rem; display: flex; align-items: center; gap: .5rem; }
+.home-en { font-family: Fraunces, serif; font-style: italic; font-weight: 400; font-size: 2.75rem; line-height: 1.1; color: var(--green); margin-bottom: 1.75rem; max-width: 22rem; }
+.home-divider { width: 3rem; height: 1px; background: var(--gold); opacity: .6; margin-bottom: 1.75rem; }
+.home-am { font-family: "Noto Sans Ethiopic", "Abyssinica SIL", serif; font-size: 2.5rem; color: var(--green); margin-bottom: .5rem; line-height: 1.2; }
+.home-tr { font-family: Fraunces, serif; font-style: italic; font-size: 1rem; color: rgba(45,74,47,.65); margin-bottom: 3.5rem; }
+.home-hint { font-size: 10px; letter-spacing: .3em; text-transform: uppercase; color: rgba(45,74,47,.45); display: flex; align-items: center; gap: .5rem; }
+.home > * { opacity: 0; animation: fadeUp .7s ease-out forwards; }
+.home > *:nth-child(1) { animation-delay: .1s; }
+.home > *:nth-child(2) { animation-delay: .3s; }
+.home > *:nth-child(3) { animation-delay: .5s; }
+.home > *:nth-child(4) { animation-delay: .7s; }
+.home > *:nth-child(5) { animation-delay: .9s; }
+.home > *:nth-child(6) { animation-delay: 1.2s; }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+</style>
+</head>
+<body>
+<div id="app">
+<div style="padding:3rem 1rem;text-align:center;color:#2D4A2F;font-family:Fraunces,Georgia,serif;font-style:italic;">Loading አማርኛ…</div>
+</div>
+
+<script>
+(function(){
+'use strict';
+
+// ============ SVG helpers ============
+function svg(paths, size) {
+  size = size || 16;
+  return '<svg class="icon" width="'+size+'" height="'+size+'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">'+paths+'</svg>';
+}
+var P = {
+  vol: '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>',
+  book: '<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>',
+  hash: '<line x1="4" y1="9" x2="20" y2="9"/><line x1="4" y1="15" x2="20" y2="15"/><line x1="10" y1="3" x2="8" y2="21"/><line x1="16" y1="3" x2="14" y2="21"/>',
+  type: '<polyline points="4 7 4 4 20 4 20 7"/><line x1="9" y1="20" x2="15" y2="20"/><line x1="12" y1="4" x2="12" y2="20"/>',
+  brain: '<path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-5 0c-1.5 0-3-1-3-2.5 0-1 .5-1.5 1-2-1.5-.5-2-1.5-2-3 0-1 .5-1.5 1-2-1-1-1-3 .5-4 0-1.5 1-2.5 2.5-2.5 1 0 1.5.5 2 1"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 5 0c1.5 0 3-1 3-2.5 0-1-.5-1.5-1-2 1.5-.5 2-1.5 2-3 0-1-.5-1.5-1-2 1-1 1-3-.5-4 0-1.5-1-2.5-2.5-2.5-1 0-1.5.5-2 1"/>',
+  msg: '<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>',
+  cal: '<rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>',
+  grad: '<path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/>',
+  spark: '<path d="M12 3l1.9 5.8L20 11l-6.1 2.2L12 19l-1.9-5.8L4 11l6.1-2.2z"/>',
+  shuf: '<polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/><line x1="4" y1="4" x2="9" y2="9"/>',
+  arrow: '<line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>',
+  check: '<polyline points="20 6 9 17 4 12"/>',
+  x: '<line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>',
+  refresh: '<polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/>',
+};
+
+// ============ DATA ============
+var PHRASES = [
+  { am: 'ሰላም', tr: 'selam', en: 'Hello / Peace', cat: 'Greetings' },
+  { am: 'ታዲያስ', tr: 'tadiyas', en: 'Hi (casual)', cat: 'Greetings' },
+  { am: 'እንደምን አደርክ?', tr: 'endemen aderk?', en: 'How are you? (to ♂)', cat: 'Greetings' },
+  { am: 'እንደምን አደርሽ?', tr: 'endemen adersh?', en: 'How are you? (to ♀)', cat: 'Greetings' },
+  { am: 'ደህና ነኝ', tr: 'dehna negn', en: "I'm well", cat: 'Greetings' },
+  { am: 'ደህና ሁን', tr: 'dehna hun', en: 'Goodbye (to ♂)', cat: 'Greetings' },
+  { am: 'ደህና ሁኚ', tr: 'dehna huni', en: 'Goodbye (to ♀)', cat: 'Greetings' },
+  { am: 'አመሰግናለሁ', tr: 'ameseginalehu', en: 'Thank you', cat: 'Courtesy' },
+  { am: 'ይቅርታ', tr: 'yiqirta', en: 'Sorry / Excuse me', cat: 'Courtesy' },
+  { am: 'እባክህ', tr: 'ibakih', en: 'Please (to ♂)', cat: 'Courtesy' },
+  { am: 'እባክሽ', tr: 'ibakish', en: 'Please (to ♀)', cat: 'Courtesy' },
+  { am: 'አዎ', tr: 'awo', en: 'Yes', cat: 'Essentials' },
+  { am: 'አይደለም', tr: 'aydelem', en: 'No', cat: 'Essentials' },
+  { am: 'ስሜ ... ነው', tr: 'sime ... new', en: 'My name is ...', cat: 'Intro' },
+  { am: 'ስምህ ማን ነው?', tr: 'simih man new?', en: "What's your name? (♂)", cat: 'Intro' },
+  { am: 'ስምሽ ማን ነው?', tr: 'simish man new?', en: "What's your name? (♀)", cat: 'Intro' },
+  { am: 'አልገባኝም', tr: 'algebagnim', en: "I don't understand", cat: 'Help' },
+  { am: 'ቀስ ብለህ ተናገር', tr: 'qes bileh tenager', en: 'Speak slowly (♂)', cat: 'Help' },
+  { am: 'ስንት ነው?', tr: 'sint new?', en: 'How much is it?', cat: 'Travel' },
+  { am: 'መጸዳጃ ቤት የት ነው?', tr: 'metsedaja bet yet new?', en: 'Where is the bathroom?', cat: 'Travel' },
+  { am: 'ውሃ', tr: 'wuha', en: 'Water', cat: 'Words' },
+  { am: 'ቡና', tr: 'buna', en: 'Coffee', cat: 'Words' },
+  { am: 'ምግብ', tr: 'migib', en: 'Food', cat: 'Words' },
+  { am: 'ቤት', tr: 'bet', en: 'House', cat: 'Words' },
+  { am: 'ጓደኛ', tr: 'gwadenya', en: 'Friend', cat: 'Words' },
+  { am: 'ቤተሰብ', tr: 'beteseb', en: 'Family', cat: 'Words' },
+];
+
+var NUMBERS = [
+  { n: 1, am: 'አንድ', tr: 'and' },
+  { n: 2, am: 'ሁለት', tr: 'hulet' },
+  { n: 3, am: 'ሶስት', tr: 'sost' },
+  { n: 4, am: 'አራት', tr: 'arat' },
+  { n: 5, am: 'አምስት', tr: 'amist' },
+  { n: 6, am: 'ስድስት', tr: 'sidist' },
+  { n: 7, am: 'ሰባት', tr: 'sebat' },
+  { n: 8, am: 'ስምንት', tr: 'simint' },
+  { n: 9, am: 'ዘጠኝ', tr: "zet'egn" },
+  { n: 10, am: 'አስር', tr: 'asir' },
+  { n: 20, am: 'ሃያ', tr: 'haya' },
+  { n: 30, am: 'ሰላሳ', tr: 'selasa' },
+  { n: 50, am: 'ሃምሳ', tr: 'hamsa' },
+  { n: 100, am: 'መቶ', tr: 'meto' },
+  { n: 1000, am: 'ሺ', tr: 'shi' },
+];
+
+var FIDEL = [
+  { name: 'h', row: ['ሀ','ሁ','ሂ','ሃ','ሄ','ህ','ሆ'] },
+  { name: 'l', row: ['ለ','ሉ','ሊ','ላ','ሌ','ል','ሎ'] },
+  { name: 'm', row: ['መ','ሙ','ሚ','ማ','ሜ','ም','ሞ'] },
+  { name: 'r', row: ['ረ','ሩ','ሪ','ራ','ሬ','ር','ሮ'] },
+  { name: 's', row: ['ሰ','ሱ','ሲ','ሳ','ሴ','ስ','ሶ'] },
+  { name: 'sh', row: ['ሸ','ሹ','ሺ','ሻ','ሼ','ሽ','ሾ'] },
+  { name: 'q', row: ['ቀ','ቁ','ቂ','ቃ','ቄ','ቅ','ቆ'] },
+  { name: 'b', row: ['በ','ቡ','ቢ','ባ','ቤ','ብ','ቦ'] },
+  { name: 't', row: ['ተ','ቱ','ቲ','ታ','ቴ','ት','ቶ'] },
+  { name: 'ch', row: ['ቸ','ቹ','ቺ','ቻ','ቼ','ች','ቾ'] },
+  { name: 'n', row: ['ነ','ኑ','ኒ','ና','ኔ','ን','ኖ'] },
+  { name: 'a', row: ['አ','ኡ','ኢ','ኣ','ኤ','እ','ኦ'] },
+  { name: 'k', row: ['ከ','ኩ','ኪ','ካ','ኬ','ክ','ኮ'] },
+  { name: 'w', row: ['ወ','ዉ','ዊ','ዋ','ዌ','ው','ዎ'] },
+  { name: 'z', row: ['ዘ','ዙ','ዚ','ዛ','ዜ','ዝ','ዞ'] },
+  { name: 'y', row: ['የ','ዩ','ዪ','ያ','ዬ','ይ','ዮ'] },
+  { name: 'd', row: ['ደ','ዱ','ዲ','ዳ','ዴ','ድ','ዶ'] },
+  { name: 'g', row: ['ገ','ጉ','ጊ','ጋ','ጌ','ግ','ጎ'] },
+  { name: "t'", row: ['ጠ','ጡ','ጢ','ጣ','ጤ','ጥ','ጦ'] },
+  { name: "ch'", row: ['ጨ','ጩ','ጪ','ጫ','ጬ','ጭ','ጮ'] },
+  { name: "ts'", row: ['ጸ','ጹ','ጺ','ጻ','ጼ','ጽ','ጾ'] },
+  { name: 'f', row: ['ፈ','ፉ','ፊ','ፋ','ፌ','ፍ','ፎ'] },
+  { name: 'p', row: ['ፐ','ፑ','ፒ','ፓ','ፔ','ፕ','ፖ'] },
+];
+var ORDER_VOWELS = ['ä','u','i','a','e','ə','o'];
+
+var VERBS = [
+  { am: 'መሆን', tr: 'mehon', en: 'to be',
+    note: 'Irregular but essential. Used for identity and states.',
+    tenses: { Present: [
+      { p: 'I am', am: 'ነኝ', tr: 'negn' },
+      { p: 'you are (♂)', am: 'ነህ', tr: 'neh' },
+      { p: 'you are (♀)', am: 'ነሽ', tr: 'nesh' },
+      { p: 'he is', am: 'ነው', tr: 'new' },
+      { p: 'she is', am: 'ናት', tr: 'nat' },
+      { p: 'we are', am: 'ነን', tr: 'nen' },
+      { p: 'you all are', am: 'ናችሁ', tr: 'nachihu' },
+      { p: 'they are', am: 'ናቸው', tr: 'nachew' },
+    ] } },
+  { am: 'መብላት', tr: 'meblat', en: 'to eat',
+    note: 'Root: ብላ (bl). The standard regular verb pattern.',
+    tenses: {
+      'Past (Perfect)': [
+        { p: 'I ate', am: 'በላሁ', tr: 'belahu' },
+        { p: 'you ate (♂)', am: 'በላህ', tr: 'belah' },
+        { p: 'you ate (♀)', am: 'በላሽ', tr: 'belash' },
+        { p: 'he ate', am: 'በላ', tr: 'bela' },
+        { p: 'she ate', am: 'በላች', tr: 'belach' },
+        { p: 'we ate', am: 'በላን', tr: 'belan' },
+        { p: 'you all ate', am: 'በላችሁ', tr: 'belachihu' },
+        { p: 'they ate', am: 'በሉ', tr: 'belu' },
+      ],
+      'Present / Future': [
+        { p: 'I eat', am: 'እበላለሁ', tr: 'ibelalehu' },
+        { p: 'you eat (♂)', am: 'ትበላለህ', tr: 'tibelaleh' },
+        { p: 'you eat (♀)', am: 'ትበያለሽ', tr: 'tibeyalesh' },
+        { p: 'he eats', am: 'ይበላል', tr: 'yibelal' },
+        { p: 'she eats', am: 'ትበላለች', tr: 'tibelalech' },
+        { p: 'we eat', am: 'እንበላለን', tr: 'inbelalen' },
+        { p: 'you all eat', am: 'ትበላላችሁ', tr: 'tibelalachihu' },
+        { p: 'they eat', am: 'ይበላሉ', tr: 'yibelalu' },
+      ],
+    } },
+  { am: 'መጠጣት', tr: "metet'at", en: 'to drink',
+    note: "Root: ጠጣ (t't'). ጠ is an ejective t' — a sharper, popped consonant.",
+    tenses: {
+      'Past (Perfect)': [
+        { p: 'I drank', am: 'ጠጣሁ', tr: "tet'ahu" },
+        { p: 'you drank (♂)', am: 'ጠጣህ', tr: "tet'ah" },
+        { p: 'you drank (♀)', am: 'ጠጣሽ', tr: "tet'ash" },
+        { p: 'he drank', am: 'ጠጣ', tr: "tet'a" },
+        { p: 'she drank', am: 'ጠጣች', tr: "tet'ach" },
+        { p: 'we drank', am: 'ጠጣን', tr: "tet'an" },
+        { p: 'they drank', am: 'ጠጡ', tr: "tet'u" },
+      ],
+    } },
+  { am: 'መሄድ', tr: 'mehed', en: 'to go',
+    note: 'Root: ሄድ (hd). One of the most frequent verbs in daily speech.',
+    tenses: {
+      'Past (Perfect)': [
+        { p: 'I went', am: 'ሄድኩ', tr: 'hedku' },
+        { p: 'you went (♂)', am: 'ሄድክ', tr: 'hedk' },
+        { p: 'you went (♀)', am: 'ሄድሽ', tr: 'hedsh' },
+        { p: 'he went', am: 'ሄደ', tr: 'hede' },
+        { p: 'she went', am: 'ሄደች', tr: 'hedech' },
+        { p: 'we went', am: 'ሄድን', tr: 'hedin' },
+        { p: 'they went', am: 'ሄዱ', tr: 'hedu' },
+      ],
+      'Present / Future': [
+        { p: 'I go', am: 'እሄዳለሁ', tr: 'ihedalehu' },
+        { p: 'you go (♂)', am: 'ትሄዳለህ', tr: 'tihedaleh' },
+        { p: 'he goes', am: 'ይሄዳል', tr: 'yihedal' },
+        { p: 'she goes', am: 'ትሄዳለች', tr: 'tihedalech' },
+        { p: 'we go', am: 'እንሄዳለን', tr: 'inhedalen' },
+        { p: 'they go', am: 'ይሄዳሉ', tr: 'yihedalu' },
+      ],
+    } },
+  { am: 'መፈለግ', tr: 'mefeleg', en: 'to want / to look for',
+    note: 'Root: ፈለግ (flg). Covers both "want" and "search for".',
+    tenses: { 'Present / Future': [
+      { p: 'I want', am: 'እፈልጋለሁ', tr: 'ifelgalehu' },
+      { p: 'you want (♂)', am: 'ትፈልጋለህ', tr: 'tifelgaleh' },
+      { p: 'you want (♀)', am: 'ትፈልጊያለሽ', tr: 'tifelgiyalesh' },
+      { p: 'he wants', am: 'ይፈልጋል', tr: 'yifelgal' },
+      { p: 'she wants', am: 'ትፈልጋለች', tr: 'tifelgalech' },
+      { p: 'we want', am: 'እንፈልጋለን', tr: 'infelgalen' },
+      { p: 'they want', am: 'ይፈልጋሉ', tr: 'yifelgalu' },
+    ] } },
+  { am: 'መውደድ', tr: 'mewedded', en: 'to love / to like',
+    note: 'Root: ወድ (wd). Used for both affection and preference.',
+    tenses: { 'Present / Future': [
+      { p: 'I love', am: 'እወዳለሁ', tr: 'iwedalehu' },
+      { p: 'you love (♂)', am: 'ትወዳለህ', tr: 'tiwedaleh' },
+      { p: 'he loves', am: 'ይወዳል', tr: 'yiwedal' },
+      { p: 'she loves', am: 'ትወዳለች', tr: 'tiwedalech' },
+      { p: 'we love', am: 'እንወዳለን', tr: 'inwedalen' },
+      { p: 'they love', am: 'ይወዳሉ', tr: 'yiwedalu' },
+    ] } },
+];
+
+var DIALOGUES = [
+  { title: 'Bumping into a friend',
+    scene: 'You run into a friend on the street in Addis Ababa.',
+    lines: [
+      { who: 'A', am: 'ሰላም! እንደምን አደርክ?', tr: 'Selam! Endemen aderk?', en: 'Hi! How are you?' },
+      { who: 'B', am: 'ደህና ነኝ፣ አንተስ?', tr: 'Dehna negn, anteso?', en: "I'm well, and you?" },
+      { who: 'A', am: 'እኔም ደህና ነኝ። ቤተሰብህ እንዴት ናቸው?', tr: 'Inem dehna negn. Betesebih indet nachew?', en: "I'm also well. How's your family?" },
+      { who: 'B', am: 'ሁሉም ደህና ናቸው። አመሰግናለሁ።', tr: 'Hulum dehna nachew. Ameseginalehu.', en: 'Everyone is well. Thanks.' },
+      { who: 'A', am: 'በቅርቡ እንገናኝ።', tr: 'Bekiribu ingenagn.', en: "Let's meet up soon." },
+      { who: 'B', am: 'እሺ! ደህና ሁን።', tr: 'Ishi! Dehna hun.', en: 'OK! Goodbye.' },
+    ] },
+  { title: 'Ordering coffee',
+    scene: 'At a buna bet (coffee house) in Bole.',
+    lines: [
+      { who: 'You', am: 'ሰላም! ቡና አለዎት?', tr: 'Selam! Buna alewot?', en: 'Hello! Do you have coffee?' },
+      { who: 'Server', am: 'አዎ፣ አለን። ስንት ይፈልጋሉ?', tr: 'Awo, alen. Sint yifelgalu?', en: 'Yes. How many would you like?' },
+      { who: 'You', am: 'አንድ ቡና፣ እባክዎ።', tr: 'And buna, ibakwo.', en: 'One coffee, please.' },
+      { who: 'Server', am: 'ስኳር ይፈልጋሉ?', tr: 'Sukar yifelgalu?', en: 'Would you like sugar?' },
+      { who: 'You', am: 'አዎ፣ ትንሽ።', tr: 'Awo, tinish.', en: 'Yes, a little.' },
+      { who: 'Server', am: 'እነሆ።', tr: 'Ineho.', en: 'Here you go.' },
+      { who: 'You', am: 'አመሰግናለሁ! ስንት ነው?', tr: 'Ameseginalehu! Sint new?', en: 'Thank you! How much?' },
+      { who: 'Server', am: 'ሃምሳ ብር።', tr: 'Hamsa birr.', en: 'Fifty birr.' },
+    ] },
+  { title: 'Asking for directions',
+    scene: 'You stop a passerby to ask the way.',
+    lines: [
+      { who: 'You', am: 'ይቅርታ፣ መርካቶ የት ነው?', tr: 'Yiqirta, Merkato yet new?', en: 'Excuse me, where is Merkato?' },
+      { who: 'Stranger', am: 'ቀጥ ብለህ ሂድ።', tr: 'Qet bileh hid.', en: 'Go straight.' },
+      { who: 'You', am: 'ምን ያህል ይርቃል?', tr: 'Min yahil yirqal?', en: 'How far is it?' },
+      { who: 'Stranger', am: 'አስር ደቂቃ በእግር።', tr: 'Asir deqiqa be-igir.', en: 'Ten minutes on foot.' },
+      { who: 'You', am: 'በጣም አመሰግናለሁ።', tr: 'Betam ameseginalehu.', en: 'Thank you very much.' },
+      { who: 'Stranger', am: 'ምንም አይደለም።', tr: 'Minim aydelem.', en: "You're welcome." },
+    ] },
+  { title: 'At the market',
+    scene: 'Buying tomatoes at a gulit (open-air market). Bargaining is normal.',
+    lines: [
+      { who: 'You', am: 'ቲማቲም ስንት ነው?', tr: 'Timatim sint new?', en: 'How much are the tomatoes?' },
+      { who: 'Vendor', am: 'ኪሎው ሰላሳ ብር።', tr: 'Kilow selasa birr.', en: 'Thirty birr a kilo.' },
+      { who: 'You', am: 'ውድ ነው። ቅናሽ የለም?', tr: 'Wid new. Qinash yelem?', en: "That's expensive. No discount?" },
+      { who: 'Vendor', am: 'እሺ፣ ሃያ አምስት ብር።', tr: 'Ishi, haya amist birr.', en: 'OK, twenty-five birr.' },
+      { who: 'You', am: 'መልካም። ሁለት ኪሎ እባክዎ።', tr: 'Melkam. Hulet kilo ibakwo.', en: 'Good. Two kilos, please.' },
+    ] },
+];
+
+var ETH_MONTHS = [
+  { am: 'መስከረም', tr: 'Meskerem', greg: 'Sept 11 – Oct 10' },
+  { am: 'ጥቅምት', tr: 'Tikimt', greg: 'Oct 11 – Nov 9' },
+  { am: 'ኅዳር', tr: 'Hidar', greg: 'Nov 10 – Dec 9' },
+  { am: 'ታኅሣሥ', tr: 'Tahsas', greg: 'Dec 10 – Jan 8' },
+  { am: 'ጥር', tr: 'Tir', greg: 'Jan 9 – Feb 7' },
+  { am: 'የካቲት', tr: 'Yekatit', greg: 'Feb 8 – Mar 9' },
+  { am: 'መጋቢት', tr: 'Megabit', greg: 'Mar 10 – Apr 8' },
+  { am: 'ሚያዝያ', tr: 'Miyazya', greg: 'Apr 9 – May 8' },
+  { am: 'ግንቦት', tr: 'Ginbot', greg: 'May 9 – Jun 7' },
+  { am: 'ሰኔ', tr: 'Sene', greg: 'Jun 8 – Jul 7' },
+  { am: 'ሐምሌ', tr: 'Hamle', greg: 'Jul 8 – Aug 6' },
+  { am: 'ነሐሴ', tr: 'Nehase', greg: 'Aug 7 – Sept 5' },
+  { am: 'ጳጉሜን', tr: 'Pagume', greg: 'Sept 6 – Sept 10 (5–6 days)' },
+];
+
+var ETH_DAYS = {
+  1: { am: 'ሰኞ', tr: 'Segno', en: 'Monday' },
+  2: { am: 'ማክሰኞ', tr: 'Maksegno', en: 'Tuesday' },
+  3: { am: 'ረቡዕ', tr: "Rebu'", en: 'Wednesday' },
+  4: { am: 'ሐሙስ', tr: 'Hamus', en: 'Thursday' },
+  5: { am: 'ዓርብ', tr: 'Arb', en: 'Friday' },
+  6: { am: 'ቅዳሜ', tr: 'Qidame', en: 'Saturday' },
+  0: { am: 'እሁድ', tr: 'Ihud', en: 'Sunday' },
+};
+
+function periodFor(h) {
+  if (h >= 6 && h < 12) return { am: 'ጥዋት', tr: "t'wat", en: 'morning' };
+  if (h >= 12 && h < 18) return { am: 'ቀን', tr: 'qen', en: 'afternoon' };
+  if (h >= 18 && h < 21) return { am: 'ምሽት', tr: 'mishit', en: 'evening' };
+  return { am: 'ሌሊት', tr: 'lelit', en: 'night' };
+}
+
+// ============ HELPERS ============
+function esc(s) {
+  return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){
+    return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c];
+  });
+}
+
+var _voices = [];
+function refreshVoices() {
+  try { _voices = window.speechSynthesis.getVoices() || []; } catch (e) {}
+}
+function findAmVoice() {
+  if (!_voices.length) refreshVoices();
+  for (var i = 0; i < _voices.length; i++) {
+    if (/^am/i.test(_voices[i].lang)) return _voices[i];
+  }
+  return null;
+}
+function speak(am, tr) {
+  if (typeof window === 'undefined' || !window.speechSynthesis) return;
+  window.speechSynthesis.cancel();
+  if (!_voices.length) refreshVoices();
+  var v = findAmVoice();
+  var u = new SpeechSynthesisUtterance();
+  if (v) {
+    u.text = am;
+    u.voice = v;
+    u.lang = v.lang;
+    u.rate = 0.85;
+  } else if (tr) {
+    u.text = tr.replace(/[?!.,]/g, '');
+    u.rate = 0.7;
+  } else {
+    u.text = am;
+    u.rate = 0.7;
+  }
+  try { window.speechSynthesis.speak(u); } catch (e) {}
+}
+if (window.speechSynthesis) {
+  refreshVoices();
+  try { window.speechSynthesis.onvoiceschanged = refreshVoices; } catch (e) {}
+}
+
+function gregorianToJDN(y, m, d) {
+  var a = Math.floor((14 - m) / 12);
+  var yy = y + 4800 - a;
+  var mm = m + 12 * a - 3;
+  return d + Math.floor((153 * mm + 2) / 5) + 365 * yy +
+    Math.floor(yy / 4) - Math.floor(yy / 100) + Math.floor(yy / 400) - 32045;
+}
+function jdnToEthiopian(jdn) {
+  var r = ((jdn - 1723856) % 1461 + 1461) % 1461;
+  var n = (r % 365) + 365 * Math.floor(r / 1460);
+  var year = 4 * Math.floor((jdn - 1723856) / 1461) + Math.floor(r / 365) - Math.floor(r / 1460);
+  var month = Math.floor(n / 30) + 1;
+  var day = (n % 30) + 1;
+  return { year: year, month: month, day: day };
+}
+function gregToEthDate(date) {
+  return jdnToEthiopian(gregorianToJDN(date.getFullYear(), date.getMonth() + 1, date.getDate()));
+}
+function gregToEthTime(date) {
+  var h = date.getHours();
+  var ethH = (h - 6 + 24) % 12;
+  if (ethH === 0) ethH = 12;
+  return { hour: ethH, minute: date.getMinutes(), period: periodFor(h) };
+}
+
+function srRate(card, q) {
+  var now = Date.now();
+  var ease = (card && card.ease) || 2.5;
+  var interval = (card && card.interval) || 0;
+  var reps = (card && card.reps) || 0;
+  if (q === 1) return { ease: Math.max(1.3, ease - 0.2), interval: 0, reps: 0, due: now + 10 * 60 * 1000 };
+  reps += 1;
+  var ni;
+  if (reps === 1) ni = 1;
+  else if (reps === 2) ni = 6;
+  else ni = Math.max(1, Math.round(interval * ease));
+  if (q === 2) { ni = Math.max(1, Math.round(ni * 0.8)); ease = Math.max(1.3, ease - 0.15); }
+  else if (q === 4) { ni = Math.round(ni * 1.3); ease += 0.15; }
+  return { ease: ease, interval: ni, reps: reps, due: now + ni * 24 * 60 * 60 * 1000 };
+}
+
+function buildPool() {
+  var cards = [];
+  for (var i = 0; i < PHRASES.length; i++) {
+    cards.push({ id: 'p:' + i, am: PHRASES[i].am, tr: PHRASES[i].tr, en: PHRASES[i].en, kind: 'phrase' });
+  }
+  for (var j = 0; j < NUMBERS.length; j++) {
+    cards.push({ id: 'n:' + NUMBERS[j].n, am: NUMBERS[j].am, tr: NUMBERS[j].tr, en: String(NUMBERS[j].n), kind: 'number' });
+  }
+  for (var k = 0; k < VERBS.length; k++) {
+    cards.push({ id: 'v:' + k, am: VERBS[k].am, tr: VERBS[k].tr, en: VERBS[k].en, kind: 'verb' });
+  }
+  return cards;
+}
+
+// ============ STATE ============
+var state = {
+  tab: 'home',
+  audioOk: null,
+  phrases: { filter: 'All', flipped: {} },
+  fidel: { selected: null },
+  verbs: { openIdx: 0 },
+  dialogues: { idx: 0, showEn: true },
+  quiz: { round: 0, score: { right: 0, wrong: 0 }, picked: null, mode: 'am-to-en', q: null },
+  flash: { progress: {}, flipped: false, done: false, sessionCount: 0, currentId: null },
+  calendar: { now: new Date() },
+};
+
+// Load flashcard progress
+try {
+  var savedSR = localStorage.getItem('amharic-sr');
+  if (savedSR) state.flash.progress = JSON.parse(savedSR);
+} catch (e) {}
+
+function saveSR() {
+  try { localStorage.setItem('amharic-sr', JSON.stringify(state.flash.progress)); } catch (e) {}
+}
+
+var POOL = buildPool();
+var QUIZ_POOL = (function() {
+  var arr = [];
+  for (var i = 0; i < PHRASES.length; i++) arr.push({ am: PHRASES[i].am, tr: PHRASES[i].tr, en: PHRASES[i].en, cat: PHRASES[i].cat });
+  for (var j = 0; j < NUMBERS.length; j++) arr.push({ am: NUMBERS[j].am, tr: NUMBERS[j].tr, en: String(NUMBERS[j].n), cat: 'Number' });
+  for (var k = 0; k < VERBS.length; k++) arr.push({ am: VERBS[k].am, tr: VERBS[k].tr, en: VERBS[k].en, cat: 'Verb' });
+  return arr;
+})();
+
+function genQuestion() {
+  var correct = QUIZ_POOL[Math.floor(Math.random() * QUIZ_POOL.length)];
+  var wrongs = [];
+  while (wrongs.length < 3) {
+    var c = QUIZ_POOL[Math.floor(Math.random() * QUIZ_POOL.length)];
+    var found = false;
+    for (var i = 0; i < wrongs.length; i++) if (wrongs[i].en === c.en) { found = true; break; }
+    if (c.en !== correct.en && !found) wrongs.push(c);
+  }
+  var opts = [correct].concat(wrongs);
+  for (var s = opts.length - 1; s > 0; s--) {
+    var swap = Math.floor(Math.random() * (s + 1));
+    var tmp = opts[s]; opts[s] = opts[swap]; opts[swap] = tmp;
+  }
+  return { correct: correct, options: opts };
+}
+
+function nextFlashCard() {
+  var now = Date.now();
+  var newOnes = [], reviewOnes = [];
+  for (var i = 0; i < POOL.length; i++) {
+    var c = POOL[i];
+    var st = state.flash.progress[c.id];
+    if (!st) newOnes.push(c);
+    else if (st.due <= now) reviewOnes.push({ card: c, due: st.due });
+  }
+  reviewOnes.sort(function(a, b) { return a.due - b.due; });
+  if (newOnes.length > 0) return newOnes[0];
+  if (reviewOnes.length > 0) return reviewOnes[0].card;
+  return null;
+}
+function dueCount() {
+  var now = Date.now();
+  var count = 0;
+  for (var i = 0; i < POOL.length; i++) {
+    var c = POOL[i];
+    var st = state.flash.progress[c.id];
+    if (!st || st.due <= now) count++;
+  }
+  return count;
+}
+
+// ============ RENDER ============
+function audioBanner() {
+  if (state.audioOk !== false) return '';
+  return '<div class="audio-banner"><strong>Audio note:</strong> No Amharic voice installed on this device, so 🔊 reads the romanized form (approximate). To check: Settings → Accessibility → Spoken Content → Voices. Amharic may not be available — most iPhones don\'t ship it.</div>';
+}
+
+function renderHeader() {
+  return '<header class="hdr"><div class="hdr-inner">' +
+    '<div>' +
+      '<div class="hdr-pre">' + svg(P.spark, 11) + ' Learn Amharic · አማርኛ</div>' +
+      '<h1 class="hdr-title">ሰላም<span class="name">, Antonio</span></h1>' +
+    '</div>' +
+    '<div class="hdr-sub">the language of Ethiopia — second-most-spoken Semitic tongue, written in Fidel script</div>' +
+    '</div></header>';
+}
+
+function renderNav() {
+  var tabs = [
+    { id: 'phrases', label: 'Phrases', icon: P.book },
+    { id: 'numbers', label: 'Numbers', icon: P.hash },
+    { id: 'fidel', label: 'Fidel', icon: P.type },
+    { id: 'verbs', label: 'Verbs', icon: P.brain },
+    { id: 'dialogues', label: 'Dialogues', icon: P.msg },
+    { id: 'calendar', label: 'Calendar', icon: P.cal },
+    { id: 'quiz', label: 'Quiz', icon: P.grad },
+    { id: 'flash', label: 'Flashcards', icon: P.spark },
+  ];
+  var html = '<nav class="nav"><div class="nav-inner">';
+  for (var i = 0; i < tabs.length; i++) {
+    var t = tabs[i];
+    html += '<button class="tab ' + (state.tab === t.id ? 'active' : '') + '" data-act="tab" data-val="' + t.id + '">' +
+      svg(t.icon, 14) + t.label + '</button>';
+  }
+  html += '</div></nav>';
+  return html;
+}
+
+function renderPhrases() {
+  var cats = ['All'];
+  var seen = {};
+  for (var i = 0; i < PHRASES.length; i++) {
+    if (!seen[PHRASES[i].cat]) { cats.push(PHRASES[i].cat); seen[PHRASES[i].cat] = 1; }
+  }
+  var html = audioBanner();
+  html += '<div class="pills">';
+  for (var j = 0; j < cats.length; j++) {
+    html += '<button class="pill ' + (state.phrases.filter === cats[j] ? 'active' : '') + '" data-act="phrase-filter" data-val="' + esc(cats[j]) + '">' + esc(cats[j]) + '</button>';
+  }
+  html += '</div><div class="grid-2">';
+  for (var k = 0; k < PHRASES.length; k++) {
+    var p = PHRASES[k];
+    if (state.phrases.filter !== 'All' && p.cat !== state.phrases.filter) continue;
+    var flipped = !!state.phrases.flipped[k];
+    html += '<button class="card" data-act="phrase-flip" data-idx="' + k + '">' +
+      '<div class="card-top">' +
+        '<span class="cat">' + esc(p.cat) + '</span>' +
+        '<span class="speak" data-act="speak" data-am="' + esc(p.am) + '" data-tr="' + esc(p.tr) + '">' + svg(P.vol, 16) + '</span>' +
+      '</div>' +
+      '<div class="big-am fe">' + p.am + '</div>' +
+      '<div class="tr ff">' + esc(p.tr) + '</div>' +
+      '<div class="en ' + (flipped ? '' : 'dim') + '">' + (flipped ? esc(p.en) : '— tap to reveal —') + '</div>' +
+      '</button>';
+  }
+  html += '</div>';
+  return html;
+}
+
+function renderNumbers() {
+  var html = audioBanner() + '<div class="grid-3">';
+  for (var i = 0; i < NUMBERS.length; i++) {
+    var n = NUMBERS[i];
+    html += '<button class="num-card" data-act="speak" data-am="' + esc(n.am) + '" data-tr="' + esc(n.tr) + '">' +
+      '<div class="num-bg">' + n.n + '</div>' +
+      '<div class="num-content">' +
+        '<div class="num-am fe">' + n.am + '</div>' +
+        '<div class="num-tr ff">' + esc(n.tr) + '</div>' +
+        '<div class="num-n">' + n.n + '</div>' +
+      '</div></button>';
+  }
+  html += '</div>';
+  return html;
+}
+
+function renderFidel() {
+  var html = audioBanner();
+  html += '<div class="fidel-intro">' +
+    '<div class="fidel-intro-pre">The Seven Orders</div>' +
+    '<div class="fidel-intro-body">Every Fidel character is a consonant + vowel. Each base shape has <em>seven forms</em> for the seven vowel sounds. Tap any cell to hear it.</div>' +
+    '<div class="fidel-orders">';
+  for (var v = 0; v < ORDER_VOWELS.length; v++) {
+    html += '<div class="fidel-order"><div class="fidel-order-num">' + (v + 1) + '</div><div class="fidel-order-vowel">' + ORDER_VOWELS[v] + '</div></div>';
+  }
+  html += '</div></div>';
+  html += '<div class="fidel-scroll"><div class="fidel-table">';
+  html += '<div class="fidel-h"></div>';
+  for (var vi = 0; vi < ORDER_VOWELS.length; vi++) html += '<div class="fidel-h">' + ORDER_VOWELS[vi] + '</div>';
+  for (var r = 0; r < FIDEL.length; r++) {
+    var row = FIDEL[r];
+    html += '<div class="fidel-rname">' + esc(row.name) + '</div>';
+    for (var c = 0; c < row.row.length; c++) {
+      var key = row.name + ':' + c;
+      var ch = row.row[c];
+      var trApprox = row.name + ORDER_VOWELS[c];
+      html += '<button class="fidel-char ' + (state.fidel.selected === key ? 'sel' : '') + '" data-act="fidel-cell" data-key="' + esc(key) + '" data-ch="' + esc(ch) + '" data-tr="' + esc(trApprox) + '">' + ch + '</button>';
+    }
+  }
+  html += '</div></div>';
+  return html;
+}
+
+function renderVerbs() {
+  var html = audioBanner();
+  html += '<div class="note-box"><div class="h">How verbs work</div><p>Amharic verbs are built from a <em>3-consonant root</em>. The infinitive begins with <span class="fe">መ</span> (me-). Conjugation suffixes encode person, gender, and number.</p></div>';
+  for (var i = 0; i < VERBS.length; i++) {
+    var v = VERBS[i];
+    var open = state.verbs.openIdx === i;
+    html += '<div class="verb">' +
+      '<div class="verb-head" data-act="verb-toggle" data-idx="' + i + '">' +
+        '<div class="verb-head-left">' +
+          '<span class="verb-am">' + v.am + '</span>' +
+          '<span class="verb-tr">' + esc(v.tr) + '</span>' +
+          '<span class="verb-en">' + esc(v.en) + '</span>' +
+        '</div>' +
+        '<span class="speak" data-act="speak" data-am="' + esc(v.am) + '" data-tr="' + esc(v.tr) + '">' + svg(P.vol, 16) + '</span>' +
+      '</div>';
+    if (open) {
+      html += '<div class="verb-body"><div class="verb-note">' + esc(v.note) + '</div>';
+      var tenseKeys = Object.keys(v.tenses);
+      for (var t = 0; t < tenseKeys.length; t++) {
+        var tk = tenseKeys[t];
+        html += '<div class="tense-head">' + esc(tk) + '</div><div class="conj-grid">';
+        var rows = v.tenses[tk];
+        for (var x = 0; x < rows.length; x++) {
+          var rr = rows[x];
+          html += '<button class="conj-row" data-act="speak" data-am="' + esc(rr.am) + '" data-tr="' + esc(rr.tr) + '">' +
+            '<span class="conj-person">' + esc(rr.p) + '</span>' +
+            '<span class="conj-am">' + rr.am + '</span>' +
+            '<span class="conj-tr">' + esc(rr.tr) + '</span>' +
+          '</button>';
+        }
+        html += '</div>';
+      }
+      html += '</div>';
+    }
+    html += '</div>';
+  }
+  return html;
+}
+
+function renderDialogues() {
+  var html = audioBanner();
+  html += '<div class="dlg-tabs">';
+  for (var i = 0; i < DIALOGUES.length; i++) {
+    html += '<button class="pill ' + (state.dialogues.idx === i ? 'active' : '') + '" data-act="dlg-tab" data-idx="' + i + '">' + esc(DIALOGUES[i].title) + '</button>';
+  }
+  html += '</div>';
+  var d = DIALOGUES[state.dialogues.idx];
+  html += '<div class="dlg">' +
+    '<div class="dlg-head">' +
+      '<div><h3 class="dlg-title">' + esc(d.title) + '</h3><p class="dlg-scene">' + esc(d.scene) + '</p></div>' +
+      '<button class="dlg-toggle" data-act="dlg-toggle-en">' + (state.dialogues.showEn ? 'Hide EN' : 'Show EN') + '</button>' +
+    '</div>' +
+    '<div class="dlg-body">';
+  for (var j = 0; j < d.lines.length; j++) {
+    var line = d.lines[j];
+    var isA = line.who === 'A' || line.who === 'You';
+    html += '<div class="dlg-row ' + (isA ? '' : 'r') + '">' +
+      '<div class="dlg-avatar">' + esc(line.who.charAt(0)) + '</div>' +
+      '<div class="dlg-bubble"><div class="dlg-msg">' +
+        '<div class="dlg-am-line">' +
+          '<span class="dlg-am-text">' + line.am + '</span>' +
+          '<button class="speak" data-act="speak" data-am="' + esc(line.am) + '" data-tr="' + esc(line.tr) + '">' + svg(P.vol, 13) + '</button>' +
+        '</div>' +
+        '<div class="dlg-tr">' + esc(line.tr) + '</div>' +
+        (state.dialogues.showEn ? '<div class="dlg-en">' + esc(line.en) + '</div>' : '') +
+      '</div></div>' +
+    '</div>';
+  }
+  html += '</div></div>';
+  return html;
+}
+
+function renderCalendar() {
+  var now = state.calendar.now;
+  var eth = gregToEthDate(now);
+  var time = gregToEthTime(now);
+  var dayName = ETH_DAYS[now.getDay()];
+  var monthName = ETH_MONTHS[eth.month - 1];
+  var html = '<div class="cal-hero"><div class="cal-hero-content">' +
+    '<div class="cal-pre">Right now in Ethiopia</div>' +
+    '<div class="cal-date">' + monthName.am + ' ' + eth.day + '</div>' +
+    '<div class="cal-date-tr">' + esc(monthName.tr) + ' ' + eth.day + ', ' + eth.year + ' E.C.</div>' +
+    '<div class="cal-grid">' +
+      '<div><div class="cal-label">Day</div><div class="cal-val">' + dayName.am + '</div><div class="cal-val-sub">' + esc(dayName.tr) + ' · ' + esc(dayName.en) + '</div></div>' +
+      '<div><div class="cal-label">Time (Ethiopian)</div><div class="cal-val">' + time.hour + ':' + (time.minute < 10 ? '0' : '') + time.minute + ' ' + time.period.am + '</div><div class="cal-val-sub">' + esc(time.period.tr) + ' · ' + esc(time.period.en) + '</div></div>' +
+      '<div><div class="cal-label">Your time</div><div class="cal-val-en">' + now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) + '</div><div class="cal-val-sub">' + now.toLocaleDateString([], { month: 'short', day: 'numeric', year: 'numeric' }) + '</div></div>' +
+    '</div>' +
+  '</div></div>';
+  html += '<div class="cal-note">' +
+    '<div class="cal-note-head">How Ethiopian time works</div>' +
+    '<p>The day begins at dawn — what\'s <em>6 AM</em> for you is <span class="fe">12 ሰዓት ጥዋት</span> in Ethiopia. So "3 in the morning" in Amharic means roughly 9 AM. Period words narrow the meaning: <span class="fe">ጥዋት</span> (morning), <span class="fe">ቀን</span> (afternoon), <span class="fe">ምሽት</span> (evening), <span class="fe">ሌሊት</span> (night).</p>' +
+  '</div>';
+  html += '<div class="section-head">13 Months of the Ge\'ez Calendar</div><div class="month-grid">';
+  for (var i = 0; i < ETH_MONTHS.length; i++) {
+    var m = ETH_MONTHS[i];
+    var isCurrent = (i + 1) === eth.month;
+    html += '<div class="month-row ' + (isCurrent ? 'current' : '') + '">' +
+      '<div>' +
+        '<div class="month-row-inner">' +
+          '<span class="month-row-num">' + (i + 1) + '.</span>' +
+          '<span class="month-row-am">' + m.am + '</span>' +
+          '<span class="month-row-tr">' + esc(m.tr) + '</span>' +
+        '</div>' +
+        '<div class="month-row-greg">' + esc(m.greg) + '</div>' +
+      '</div>' +
+      (isCurrent ? '<span class="month-row-now">now</span>' : '') +
+    '</div>';
+  }
+  html += '</div>';
+  html += '<div class="section-head">Days of the Week</div><div class="day-grid">';
+  var dayOrder = [1, 2, 3, 4, 5, 6, 0];
+  for (var dd = 0; dd < dayOrder.length; dd++) {
+    var di = dayOrder[dd];
+    var d = ETH_DAYS[di];
+    var isCur = now.getDay() === di;
+    html += '<div class="day-card ' + (isCur ? 'current' : '') + '">' +
+      '<div class="day-am">' + d.am + '</div>' +
+      '<div class="day-tr">' + esc(d.tr) + '</div>' +
+      '<div class="day-en">' + esc(d.en) + '</div>' +
+    '</div>';
+  }
+  html += '</div>';
+  return html;
+}
+
+function renderQuiz() {
+  if (!state.quiz.q) state.quiz.q = genQuestion();
+  var q = state.quiz.q;
+  var mode = state.quiz.mode;
+  var total = state.quiz.score.right + state.quiz.score.wrong;
+  var acc = total > 0 ? Math.round((state.quiz.score.right / total) * 100) : 0;
+  var html = audioBanner();
+  html += '<div class="quiz-top">' +
+    '<div>' +
+      '<div class="quiz-score-pre">Score</div>' +
+      '<div class="quiz-score">' +
+        '<span class="quiz-score-num">' + state.quiz.score.right + '<span class="quiz-score-frac">/' + total + '</span></span>' +
+        '<span class="quiz-acc">' + acc + '% accuracy</span>' +
+      '</div>' +
+    '</div>' +
+    '<button class="quiz-toggle" data-act="quiz-mode">' + svg(P.shuf, 12) + (mode === 'am-to-en' ? 'AM → EN' : 'EN → AM') + '</button>' +
+  '</div>';
+  html += '<div class="quiz-prompt">' +
+    '<div class="quiz-prompt-pre">' + (mode === 'am-to-en' ? 'What does this mean?' : 'Translate to Amharic') + '</div>' +
+    '<div class="quiz-prompt-text ' + (mode === 'am-to-en' ? 'am-mode fe' : 'en-mode') + '">' +
+      (mode === 'am-to-en' ? q.correct.am : esc(q.correct.en)) +
+    '</div>';
+  if (mode === 'am-to-en') {
+    html += '<button class="quiz-speak" data-act="speak" data-am="' + esc(q.correct.am) + '" data-tr="' + esc(q.correct.tr) + '">' + svg(P.vol, 16) + '</button>';
+  }
+  html += '</div>';
+  html += '<div class="quiz-opts">';
+  for (var i = 0; i < q.options.length; i++) {
+    var o = q.options[i];
+    var isCorrect = o.en === q.correct.en;
+    var isPicked = state.quiz.picked && state.quiz.picked.en === o.en;
+    var cls = mode === 'am-to-en' ? 'en-mode' : 'am-mode fe';
+    if (state.quiz.picked) {
+      if (isCorrect) cls += ' correct';
+      else if (isPicked) cls += ' wrong';
+      else cls += ' dim';
+    }
+    var iconHtml = '';
+    if (state.quiz.picked) {
+      if (isCorrect) iconHtml = svg(P.check, 18);
+      else if (isPicked) iconHtml = svg(P.x, 18);
+    }
+    var optText = mode === 'am-to-en' ? esc(o.en) : o.am;
+    html += '<button class="quiz-opt ' + cls + '" data-act="quiz-pick" data-idx="' + i + '"' + (state.quiz.picked ? ' disabled' : '') + '>' +
+      '<span class="quiz-opt-txt">' + optText + '</span>' + iconHtml +
+    '</button>';
+  }
+  html += '</div>';
+  if (state.quiz.picked) {
+    html += '<button class="quiz-next" data-act="quiz-next">Next Question ' + svg(P.arrow, 14) + '</button>';
+  }
+  return html;
+}
+
+function renderFlash() {
+  var due = dueCount();
+  var current = nextFlashCard();
+  state.flash.currentId = current ? current.id : null;
+  var learned = Object.keys(state.flash.progress).length;
+  var html = audioBanner();
+  if (!current) {
+    html += '<div class="flash-done">' +
+      '<div class="flash-done-icon">' + svg(P.spark, 40) + '</div>' +
+      '<h3 class="flash-done-title">' + (state.flash.sessionCount > 0 ? 'Session complete!' : 'All caught up') + '</h3>' +
+      '<div class="flash-done-msg">' +
+        (state.flash.sessionCount > 0 ? 'You reviewed ' + state.flash.sessionCount + ' card' + (state.flash.sessionCount === 1 ? '' : 's') + ' this session. ' : '') +
+        'Come back when more cards are due.' +
+      '</div>' +
+      '<div class="flash-done-stats">' + learned + ' of ' + POOL.length + ' cards in your collection</div>' +
+      '<button class="flash-reset" data-act="flash-reset">' + svg(P.refresh, 12) + ' Reset Progress</button>' +
+    '</div>';
+    return html;
+  }
+  var isNew = !state.flash.progress[current.id];
+  html += '<div class="flash-top">' +
+    '<div class="flash-stats">' +
+      '<div><div class="flash-stat-label">Due</div><div class="flash-stat-val">' + due + '</div></div>' +
+      '<div><div class="flash-stat-label">Session</div><div class="flash-stat-val">' + state.flash.sessionCount + '</div></div>' +
+      '<div><div class="flash-stat-label">Learned</div><div class="flash-stat-val">' + learned + '/' + POOL.length + '</div></div>' +
+    '</div>' +
+    '<button class="flash-reset" data-act="flash-reset">' + svg(P.refresh, 11) + ' Reset</button>' +
+  '</div>';
+  html += '<div class="flash-card" data-act="flash-flip">' +
+    (isNew ? '<span class="flash-card-new">New</span>' : '') +
+    '<span class="flash-card-kind">' + esc(current.kind) + '</span>' +
+    '<div class="flash-card-am">' + current.am + '</div>';
+  if (state.flash.flipped) {
+    html += '<div class="flash-card-tr">' + esc(current.tr) + '</div>' +
+      '<div class="flash-card-en">' + esc(current.en) + '</div>';
+  } else {
+    html += '<div class="flash-card-hint">tap to reveal</div>';
+  }
+  html += '<button class="flash-card-speak" data-act="speak" data-am="' + esc(current.am) + '" data-tr="' + esc(current.tr) + '">' + svg(P.vol, 16) + '</button>';
+  html += '</div>';
+  if (state.flash.flipped) {
+    html += '<div class="flash-rate-grid">' +
+      '<button class="flash-rate again" data-act="flash-rate" data-q="1"><span class="flash-rate-label">Again</span><span class="flash-rate-sub">10 min</span></button>' +
+      '<button class="flash-rate hard" data-act="flash-rate" data-q="2"><span class="flash-rate-label">Hard</span><span class="flash-rate-sub">short</span></button>' +
+      '<button class="flash-rate good" data-act="flash-rate" data-q="3"><span class="flash-rate-label">Good</span><span class="flash-rate-sub">normal</span></button>' +
+      '<button class="flash-rate easy" data-act="flash-rate" data-q="4"><span class="flash-rate-label">Easy</span><span class="flash-rate-sub">long</span></button>' +
+    '</div>';
+  } else {
+    html += '<button class="flash-show" data-act="flash-show">Show Answer</button>';
+  }
+  return html;
+}
+
+function renderHome() {
+  return '<div class="home" data-act="home-enter">' +
+    '<div class="home-pre">' + svg(P.spark, 11) + ' Learn Amharic · አማርኛ</div>' +
+    '<div class="home-en">Prince is a bum</div>' +
+    '<div class="home-divider"></div>' +
+    '<div class="home-am">ፕሪንስ ቦዘኔ ነው</div>' +
+    '<div class="home-tr">prins bozene new</div>' +
+    '<div class="home-hint">tap anywhere to begin ' + svg(P.arrow, 12) + '</div>' +
+  '</div>';
+}
+
+function renderTab() {
+  switch (state.tab) {
+    case 'phrases': return renderPhrases();
+    case 'numbers': return renderNumbers();
+    case 'fidel': return renderFidel();
+    case 'verbs': return renderVerbs();
+    case 'dialogues': return renderDialogues();
+    case 'calendar': return renderCalendar();
+    case 'quiz': return renderQuiz();
+    case 'flash': return renderFlash();
+  }
+  return '';
+}
+
+function renderApp() {
+  if (state.tab === 'home') return renderHome();
+  return renderHeader() + renderNav() + '<main class="main">' + renderTab() + '</main>' +
+    '<footer class="ftr"><div class="ftr-text">ኢትዮጵያ · ethiopia · made with care</div></footer>';
+}
+
+function render() {
+  document.getElementById('app').innerHTML = renderApp();
+}
+
+// ============ EVENTS ============
+var calendarTimer = null;
+function startCalTimer() {
+  if (calendarTimer) clearInterval(calendarTimer);
+  calendarTimer = setInterval(function() {
+    if (state.tab === 'calendar') {
+      state.calendar.now = new Date();
+      render();
+    } else {
+      clearInterval(calendarTimer);
+      calendarTimer = null;
+    }
+  }, 30000);
+}
+
+document.addEventListener('click', function(e) {
+  var btn = e.target.closest && e.target.closest('[data-act]');
+  if (!btn) return;
+  var act = btn.dataset.act;
+
+  if (act === 'speak') {
+    e.preventDefault(); e.stopPropagation();
+    speak(btn.dataset.am, btn.dataset.tr);
+    return;
+  }
+
+  switch (act) {
+    case 'home-enter':
+      state.tab = 'phrases';
+      render();
+      window.scrollTo(0, 0);
+      break;
+    case 'tab':
+      state.tab = btn.dataset.val;
+      if (state.tab === 'calendar') {
+        state.calendar.now = new Date();
+        startCalTimer();
+      }
+      if (state.tab === 'quiz' && !state.quiz.q) {
+        state.quiz.q = genQuestion();
+      }
+      render();
+      window.scrollTo(0, 0);
+      break;
+    case 'phrase-filter':
+      state.phrases.filter = btn.dataset.val;
+      render();
+      break;
+    case 'phrase-flip':
+      var idx = btn.dataset.idx;
+      state.phrases.flipped[idx] = !state.phrases.flipped[idx];
+      render();
+      break;
+    case 'fidel-cell':
+      // direct DOM update for performance
+      var prev = document.querySelector('.fidel-char.sel');
+      if (prev) prev.classList.remove('sel');
+      btn.classList.add('sel');
+      state.fidel.selected = btn.dataset.key;
+      speak(btn.dataset.ch, btn.dataset.tr);
+      break;
+    case 'verb-toggle':
+      var vidx = parseInt(btn.dataset.idx, 10);
+      state.verbs.openIdx = state.verbs.openIdx === vidx ? -1 : vidx;
+      render();
+      break;
+    case 'dlg-tab':
+      state.dialogues.idx = parseInt(btn.dataset.idx, 10);
+      render();
+      break;
+    case 'dlg-toggle-en':
+      state.dialogues.showEn = !state.dialogues.showEn;
+      render();
+      break;
+    case 'quiz-mode':
+      state.quiz.mode = state.quiz.mode === 'am-to-en' ? 'en-to-am' : 'am-to-en';
+      state.quiz.picked = null;
+      state.quiz.q = genQuestion();
+      render();
+      break;
+    case 'quiz-pick':
+      if (state.quiz.picked) return;
+      var qidx = parseInt(btn.dataset.idx, 10);
+      var picked = state.quiz.q.options[qidx];
+      state.quiz.picked = picked;
+      if (picked.en === state.quiz.q.correct.en) state.quiz.score.right++;
+      else state.quiz.score.wrong++;
+      render();
+      break;
+    case 'quiz-next':
+      state.quiz.picked = null;
+      state.quiz.q = genQuestion();
+      state.quiz.round++;
+      render();
+      break;
+    case 'flash-flip':
+    case 'flash-show':
+      state.flash.flipped = !state.flash.flipped;
+      render();
+      break;
+    case 'flash-rate':
+      var q = parseInt(btn.dataset.q, 10);
+      var cid = state.flash.currentId;
+      if (!cid) return;
+      var newSt = srRate(state.flash.progress[cid], q);
+      state.flash.progress[cid] = newSt;
+      saveSR();
+      state.flash.flipped = false;
+      state.flash.sessionCount++;
+      render();
+      break;
+    case 'flash-reset':
+      if (confirm('Reset all flashcard progress? This cannot be undone.')) {
+        state.flash.progress = {};
+        state.flash.sessionCount = 0;
+        try { localStorage.removeItem('amharic-sr'); } catch (e) {}
+        render();
+      }
+      break;
+  }
+});
+
+// ============ INIT ============
+function checkAudio() {
+  refreshVoices();
+  state.audioOk = !!findAmVoice();
+}
+checkAudio();
+if (window.speechSynthesis) {
+  try {
+    window.speechSynthesis.onvoiceschanged = function() {
+      refreshVoices();
+      var was = state.audioOk;
+      state.audioOk = !!findAmVoice();
+      if (was !== state.audioOk) render();
+    };
+  } catch (e) {}
+}
+// Re-check after a delay (iOS often loads voices late)
+setTimeout(function() {
+  refreshVoices();
+  var was = state.audioOk;
+  state.audioOk = !!findAmVoice();
+  if (was !== state.audioOk) render();
+}, 800);
+
+render();
+
+})();
+</script>
+</body>
+</html>

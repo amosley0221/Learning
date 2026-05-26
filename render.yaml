@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: amharic-learning
+    runtime: static
+    buildCommand: ""
+    staticPublishPath: ./amharic-app
